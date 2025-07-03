@@ -1,4 +1,11 @@
-const { scheduleTask } = require('./scheduler');
 const config = require('../config.json');
+const { scheduleTask } = require('./scheduler');
 
-scheduleTask(config);
+config.projects.forEach(project => {
+  const fullProjectConfig = {
+    ...project,
+    githubToken: config.githubToken,
+    repoPath: `${config.cacheDir}/${project.projectName}`
+  };
+  scheduleTask(fullProjectConfig);
+});
