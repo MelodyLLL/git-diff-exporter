@@ -1,8 +1,15 @@
 {
-  "projectName": "demo-project",
-  "repoPath": "./demo-project-repo",
-  "baseBranch": "master",
-  "compareBranch": "feature/dev",
-  "schedule": "0 9 * * 2",
-  "email": "receiver@example.com"
+  "githubToken": "",
+  "projects": [
+    {
+      "projectName": "project-a",
+      "remote": "https://github.com/MelodyLLL/git-diff-exporter",
+      "baseBranch": "main",
+      "compareBranch": "dev",
+      "schedule": "0 9 * * 2" ,
+      "repoPath": "./.cache/project-a"
+    }
+  ],
+  "cacheDir": "./.cache"
 }
+

@@ -2,12 +2,12 @@ const simpleGit = require('simple-git');
 
 async function getGitDiffLogs(config) {
   const git = simpleGit(config.repoPath);
-  await git.fetch();
-  const logs = await git.log({
-    from: config.baseBranch,
-    to: config.compareBranch,
-  });
+  const from = `__temp__${config.baseBranch}`;
+  const to = `__temp__${config.compareBranch}`;
+
+  const logs = await git.log({ from, to });
   return logs.all;
 }
 
 module.exports = { getGitDiffLogs };
+
